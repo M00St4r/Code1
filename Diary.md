@@ -40,4 +40,4 @@ View a Git Graph of your repository, and easily perform Git actions from the gra
 - How to link files into our markdown files
 - How to link your Repository to Visual Studio
 - How to add branches
-- how to burgerking
+- how to merge branches
