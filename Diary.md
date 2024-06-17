@@ -1,7 +1,7 @@
 # Code1
 Documentation 
 
-<div style="text-align: right"> 2024.06.17 </div>
+<div align="right">2024.06.17</div>
 
 Find out what the different software might be used for. 
 
