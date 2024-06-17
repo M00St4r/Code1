@@ -1,9 +1,3 @@
-<div class="pull-right">
- 
- test
- 
- </div>
-
 # Code1
 Documentation 
 
