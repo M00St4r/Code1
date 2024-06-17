@@ -38,3 +38,4 @@ View a Git Graph of your repository, and easily perform Git actions from the gra
 - How to create a Git Hub Repository
 - How to use markdown do layout files
 - How to link files into our markdown files
+- How to link your Repository to Visual Studio
