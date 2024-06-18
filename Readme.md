@@ -112,3 +112,9 @@ If you want a safer approach, use interactive mode:
 This allows you to review and selectively delete untracked files.
 
 ## HTML
+
+Create clean HTML Document
+
+Edit a Webpage with Browser Dev Tools
+
+![Screenshot](https://github.com/M00St4r/Code1/blob/main/Screenshot%20Webpage.png?raw=true)
