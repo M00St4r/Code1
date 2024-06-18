@@ -118,3 +118,111 @@ Create clean [HTML Document](https://github.com/M00St4r/Code1/blob/main/main.htm
 Edit a Webpage with Browser Dev Tools
 
 ![Screenshot](https://github.com/M00St4r/Code1/blob/main/Screenshot%20Webpage.png?raw=true)
+
+### HTML Tags
+
+#### Structural Tags:
+
+    <html>: Defines the root of an HTML document.
+    <head>: Defines the metadata of an HTML document.
+    <body>: Defines the content of an HTML document.
+    <h1> to <h6>: Defines HTML headings.
+    <p>: Defines a paragraph of text.
+    <div>: Defines a division or a section of an HTML document.
+    <span>: Defines a section of text within a paragraph.
+    <header>: Defines the header section of an HTML document.
+    <footer>: Defines the footer section of an HTML document.
+    <nav>: Defines a navigation section of an HTML document.
+    <main>: Defines the main content section of an HTML document.
+    <section>: Defines a section of an HTML document.
+    <article>: Defines an independent piece of content within an HTML document.
+    <aside>: Defines a piece of content that is related to the main content.
+    <figure>: Defines a figure within an HTML document.
+    <figcaption>: Defines a caption for a figure.
+    <table>: Defines a table within an HTML document.
+    <tr>: Defines a table row within a table.
+    <td>: Defines a table data cell within a table.
+    <th>: Defines a table header cell within a table.
+
+#### Text Tags
+
+    <a>: Defines a hyperlink.
+    <abbr>: Defines an abbreviation or an acronym.
+    <b>: Defines bold text.
+    <i>: Defines italic text.
+    <u>: Defines underlined text.
+    <strike>: Defines struck-through text.
+    <sub>: Defines subscript text.
+    <sup>: Defines superscript text.
+    <mark>: Defines marked text.
+    <q>: Defines a short quotation.
+    <blockquote>: Defines a long quotation.
+    <cite>: Defines the title of a work.
+    <code>: Defines a code snippet.
+    <kbd>: Defines a keyboard input.
+    <samp>: Defines sample output.
+    <var>: Defines a variable.
+
+#### Image Tags
+
+    <img>: Defines an image.
+    <picture>: Defines a picture element.
+    <source>: Defines a source for an image.
+    <map>: Defines a client-side image map.
+    <area>: Defines an area within an image map.
+
+#### Link Tags
+
+    <link>: Defines a link to an external resource.
+    <a>: Defines a hyperlink.
+
+#### Form Tags
+
+    <form>: Defines a form.
+    <input>: Defines an input field.
+    <textarea>: Defines a text area.
+    <select>: Defines a select menu.
+    <option>: Defines an option within a select menu.
+    <button>: Defines a button.
+    <label>: Defines a label for a form control.
+    <fieldset>: Defines a fieldset within a form.
+    <legend>: Defines a legend for a fieldset.
+
+#### Table Tags
+
+    <table>: Defines a table.
+    <tr>: Defines a table row.
+    <td>: Defines a table data cell.
+    <th>: Defines a table header cell.
+    <thead>: Defines the header section of a table.
+    <tbody>: Defines the body section of a table.
+    <tfoot>: Defines the footer section of a table.
+
+#### Scripting Tags
+
+    <script>: Defines a script.
+    <noscript>: Defines a script that should be executed if the browser does not support scripting.
+
+#### Semantic Tags
+
+    <header>: Defines the header section of an HTML document.
+    <footer>: Defines the footer section of an HTML document.
+    <nav>: Defines a navigation section of an HTML document.
+    <main>: Defines the main content section of an HTML document.
+    <section>: Defines a section of an HTML document.
+    <article>: Defines an independent piece of content within an HTML document.
+    <aside>: Defines a piece of content that is related to the main content.
+    <figure>: Defines a figure within an HTML document.
+    <figcaption>: Defines a caption for a figure.
+
+#### Deprecated Tags
+
+    <font>: Defines font styles.
+    <center>: Centers text or other elements.
+    <u>: Defines underlined text.
+    <strike>: Defines struck-through text.
+    <tt>: Defines teletype text.
+    <big>: Defines big text.
+    <small>: Defines small text.
+    <sub>: Defines subscript text.
+    <sup>: Defines superscript text.
