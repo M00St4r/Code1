@@ -113,11 +113,11 @@ This allows you to review and selectively delete untracked files.
 
 ## HTML
 
-Create a clean [HTML Document](https://github.com/M00St4r/Code1/blob/main/main.html)
+Create a clean [HTML Document](/HTML/TagsHTML/main.html)
 
 Edit a Webpage with Browser Dev Tools
 
-![Screenshot](https://github.com/M00St4r/Code1/blob/main/Screenshot%20Webpage.png?raw=true)
+![Screenshot](/Files/Images/Screenshot%20Webpage.png)
 
 ### HTML Tags
 
