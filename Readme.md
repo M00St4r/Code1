@@ -93,4 +93,20 @@ Be cautious, as this will remove local modifications. If you have work you want 
     git stash pop
 
 This saves your modifications, then reapplies them after resetting1.
-Remember to replace <commit_hash> with the actual commit hash you want to revert to. 😊
+Replace <commit_hash> with the actual commit hash you want to revert to.
+
+### Remove all untracked files from your Git repository:
+
+#### Simple Cleanup:
+Use the following command to delete all untracked files (be cautious, as this action is irreversible):
+
+    git clean -f
+
+This will remove files that are not under version control.
+
+#### Interactive Mode (Safer):
+If you want a safer approach, use interactive mode:
+
+    git clean -i
+
+This allows you to review and selectively delete untracked files.
