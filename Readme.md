@@ -110,3 +110,5 @@ If you want a safer approach, use interactive mode:
     git clean -i
 
 This allows you to review and selectively delete untracked files.
+
+## HTML
