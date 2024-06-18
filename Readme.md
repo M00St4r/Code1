@@ -49,40 +49,29 @@ View a Git Graph of your repository, and easily perform Git actions from the gra
 Merge:
 
     Creates a merge commit that combines changes from one branch into another.
-
     Retains all individual commits from both branches in the commit history.
-
     Provides clear information about the branch history.
-
     Useful for integrating feature branches into the main branch.
 
 Rebase:
 
     Moves the head of the current branch to the last commit of the target branch.
-
     Produces a more linear commit history.
-
     Replays the changes from the feature branch on top of the target branch.
-
     Useful for keeping a clean, linear history and avoiding unnecessary merge commits.
 
 Squash:
 
     Combines all commits from a feature branch into a single squashed commit.
-
     Creates a clean linear history but provides less information about individual commits.
-
     Useful when you want to simplify the commit history and discard the source branch.
 
 
 ### Temporarily switch to a different commit:
 
 If you want to temporarily go back to a specific commit, use:
-
 git checkout <commit_hash>
-
 Replace <commit_hash> with the actual hash of the commit you want to revert to. This will detach your HEAD, allowing you to explore that commit. If you want to 
-
 make new commits while you’re there, create a new branch using:
 
     git checkout -b <branch_name> <commit_hash>
@@ -104,5 +93,4 @@ Be cautious, as this will remove local modifications. If you have work you want 
     git stash pop
 
 This saves your modifications, then reapplies them after resetting1.
-
 Remember to replace <commit_hash> with the actual commit hash you want to revert to. 😊
