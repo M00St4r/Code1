@@ -5,8 +5,6 @@ Documentation
 
 Find out what the different software might be used for. 
 
- 
-
 ### Git: 
 
 Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. 
@@ -41,8 +39,13 @@ View a Git Graph of your repository, and easily perform Git actions from the gra
 - How to link your Repository to Visual Studio
 - How to add branches
 - How to merge branches
+- How to gitignore files
 
-#### What is the difference between the merge strategies: merge, rebase, squash?
+#
+
+<div align="right">2024.06.18</div>
+
+### What is the difference between the merge strategies: merge, rebase, squash?
 Merge:
 
     Creates a merge commit that combines changes from one branch into another.
@@ -70,3 +73,36 @@ Squash:
     Creates a clean linear history but provides less information about individual commits.
 
     Useful when you want to simplify the commit history and discard the source branch.
+
+
+### Temporarily switch to a different commit:
+
+If you want to temporarily go back to a specific commit, use:
+
+git checkout <commit_hash>
+
+Replace <commit_hash> with the actual hash of the commit you want to revert to. This will detach your HEAD, allowing you to explore that commit. If you want to 
+
+make new commits while you’re there, create a new branch using:
+
+    git checkout -b <branch_name> <commit_hash>
+
+To return to your original branch, check it out again.
+
+### Hard delete unpublished commits:
+
+If you want to permanently discard all changes made after a certain commit (and haven’t pushed these changes), use:
+
+    git reset --hard <commit_hash>
+
+Be cautious, as this will remove local modifications. If you have work you want to keep, stash it first:
+
+    git stash
+
+    git reset --hard <commit_hash>
+
+    git stash pop
+
+This saves your modifications, then reapplies them after resetting1.
+
+Remember to replace <commit_hash> with the actual commit hash you want to revert to. 😊
