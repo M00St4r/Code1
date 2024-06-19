@@ -254,6 +254,8 @@ Edit a Webpage with Browser Dev Tools
 
 #### What does "cascading" mean?
 
+The term “cascading” in Cascading Style Sheets (CSS) refers to the way styles are applied to HTML elements.
+
 ### Comon Selectors in Css
 
 Class Selector: Selects elements with a specific class attribute. For example:
