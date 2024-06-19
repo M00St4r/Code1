@@ -231,6 +231,10 @@ Edit a Webpage with Browser Dev Tools
 
 <div align="right">2024.06.19</div>
 
+## Branchgame
+
+[play](https://matbudimir.github.io/0Sugar/Branchgame/index.html)
+
 ## CSS
 
 ### [CSS Properties](https://www.w3schools.com/cssref/index.php)
