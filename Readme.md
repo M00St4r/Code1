@@ -247,3 +247,54 @@ Edit a Webpage with Browser Dev Tools
     position: Positions elements (relative, absolute, fixed).
     width, height, and max-width: Control dimensions.
     text-align: Aligns text (left, right, center).
+
+#### What does "cascading" mean?
+
+### Comon Selectors in Css
+Class Selector: Selects elements with a specific class attribute. For example:
+
+    .intro {
+    /* Styles for elements with class="intro" */
+    }
+
+ID Selector: Targets an element with a unique ID attribute. For instance:
+
+    #firstname {
+    /* Styles for the element with id="firstname" */
+    }
+
+Element Selector: Styles all instances of a specific HTML element. For example:
+
+    p {
+    /* Styles for all <p> elements */
+    }
+
+Descendant Selector: Selects elements within another element. Example:
+
+    div p {
+    /* Styles for <p> elements inside <div> elements */
+    }
+
+Child Selector: Styles direct children of an element. For instance:
+
+
+    div > p {
+    /* Styles for <p> elements where parent is a <div> */
+    }
+
+Attribute Selectors:
+
+    [attribute]: Selects elements with a specific attribute.
+    [attribute=value]: Targets elements with a matching attribute value.
+    [attribute~=value]: Selects elements with an attribute containing a specific word.
+    [attribute|=value]: Matches elements with an attribute value starting with a specific string.
+    [attribute^=value]: Styles elements with an attribute value beginning with a specific substring.
+    [attribute$=value]: Styles elements with an attribute value ending in a specific substring.
+    [attribute*=value]: Selects elements with an attribute containing a specific substring.
+
+Pseudo-classes and Pseudo-elements:
+
+    :hover, :active, :focus: Styles based on user interaction.
+    ::before, ::after: Adds content before or after an element.
+    :first-child, :last-child: Styles first or last child elements.
+    :nth-child(n): Selects elements at a specific position.
