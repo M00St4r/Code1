@@ -14,10 +14,16 @@ camera.position.setZ(30);
 renderer.render( scene, camera );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } ); //MeshBasicMaterial = no Light interaction, MeshStandardMaterial = light interaction
+const material = new THREE.MeshStandardMaterial( { color: 0x420420 } ); //MeshBasicMaterial = no Light interaction, MeshStandardMaterial = light interaction
 const cube = new THREE.Mesh( geometry, material );
 
 scene.add( cube );
+
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(3,3,3);
+pointLight.power = 10000;
+
+scene.add(pointLight);
 
 function animate(){
   requestAnimationFrame(animate);
