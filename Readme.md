@@ -234,3 +234,16 @@ Edit a Webpage with Browser Dev Tools
 ## CSS
 
 ### [CSS Properties](https://www.w3schools.com/cssref/index.php)
+
+#### Essentials:
+
+    background: A shorthand for background properties like color, image, and position.
+    border: A shorthand for border width, style, and color.
+    animation: Controls animation properties like duration, timing function, and iteration count.
+    font: Sets font properties such as family, size, weight, and style.
+    margin and padding: Define spacing around elements.
+    color: Specifies text color.
+    display: Determines how an element is displayed (e.g., block, inline, flex).
+    position: Positions elements (relative, absolute, fixed).
+    width, height, and max-width: Control dimensions.
+    text-align: Aligns text (left, right, center).
