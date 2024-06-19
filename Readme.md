@@ -233,4 +233,4 @@ Edit a Webpage with Browser Dev Tools
 
 ## CSS
 
-### CSS
+### [CSS Properties](https://www.w3schools.com/cssref/index.php)
