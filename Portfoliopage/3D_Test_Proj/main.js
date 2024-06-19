@@ -49,12 +49,11 @@ function addStar(){
 
 Array(200).fill().forEach(addStar);
 
-const worldMap = new THREE.TextureLoader().load('images/Saturn.jpg');
+const worldMap = new THREE.TextureLoader().load('images/Earth.png');
 
 function addBG(){
-  const geometry = new THREE.SphereGeometry(30,10,10);
+  const geometry = new THREE.SphereGeometry(30,24,24);
   var material = new THREE.MeshBasicMaterial({map: worldMap, side: THREE.BackSide})
-  //material.side = THREE.DoubleSide;
   const worldBg = new THREE.Mesh(geometry, material);
   scene.add(worldBg);
 }
