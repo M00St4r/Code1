@@ -251,6 +251,7 @@ Edit a Webpage with Browser Dev Tools
 #### What does "cascading" mean?
 
 ### Comon Selectors in Css
+
 Class Selector: Selects elements with a specific class attribute. For example:
 
     .intro {
