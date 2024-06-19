@@ -1,6 +1,12 @@
 import './style.css'
 import * as THREE from 'three';
 
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const controls = new OrbitControls( camera, renderer.domElement );
+const loader = new GLTFLoader();
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -24,6 +30,9 @@ pointLight.position.set(3,3,3);
 pointLight.power = 10000;
 
 scene.add(pointLight);
+
+const lightHelper = new THREE.PointLightHelper(pointLight);
+scene.add(lightHelper);
 
 function animate(){
   requestAnimationFrame(animate);
