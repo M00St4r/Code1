@@ -1,3 +1,64 @@
-.nameContainer{
-    
+.league-gothic-title {
+    font-family: "League Gothic", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.nameContainer {
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 30%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.name {
+    font-family: "League Gothic", sans-serif;
+    font-size: 600%;
+    letter-spacing: 0.25em;
+    line-height: 0.5em;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#givenname {
+    text-align: left;
+    justify-content: flex-start;
+}
+
+#name {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.topBar, .bottomBar {
+    display: inline-block;
+    height: 10px;
+    flex-grow: 1;
+    background-color: black;
+    border: none;
+    margin-left: 10px; /* Spacing between the text and the bar */
+    margin-right: 10px; /* Spacing between the text and the bar */
+}
+
+.topBar{
+    width: 2em;
+}
+
+.bottomBar{
+    width: 0.5em;
 }
