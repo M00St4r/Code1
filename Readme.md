@@ -325,3 +325,7 @@ creates a new element in the Html doc.
     let newspan = document.createElement("span");
     newspawn.textContent = "hello";
     document.body.appendChild(newspan);
+
+### Load the Script after the HTML loaded
+
+    <script src='main.js' defer></script>
