@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+    color: black;
+}
+
+p{
+    color: black;
+}
+
+.canvas {
+    position: absolute; /* Position the element relative to the nearest positioned ancestor */
+    top: 12%;             /* Align to the top of the screen */
+    left: 0;            /* Align to the left of the screen */
+    bottom: 0;          /* Ensure it stretches to the bottom */
+    width: 100%;         /* Adjust this value to the desired width of the left space */
+    margin: 0;          /* Remove any default margin */
+    padding: fit-content;
+    border: 5px solid black;
+    border-radius: 25px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
