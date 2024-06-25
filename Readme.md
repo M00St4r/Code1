@@ -348,3 +348,5 @@ Here’s a breakdown of the different types of events and their characteristics:
     
     Document events: These events are triggered by changes to the document, such as DOM mutations, load, and unload.
 
+[All Events]("https://www.w3schools.com/jsref/dom_obj_event.asp")
+

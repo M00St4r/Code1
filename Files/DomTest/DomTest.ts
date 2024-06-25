@@ -1,30 +1,21 @@
-console.log("Hello")
 
 //DOM Manipulation
-
-let spanElement = document.querySelector("#idHello")!;
-spanElement.textContent = "Have a";
-
 let newSpan: HTMLSpanElement = document.createElement("span");
-newSpan.textContent = "nice day!";
-document.body.appendChild(newSpan);
-newSpan.style.backgroundColor = "";
 
-console.log(newSpan);
+let blurFactor = 0.25;
 
-
+let fontList: string[] = [
+    "Roboto", "Oswald", "Kanit"
+];
 
 //Array
 let bodyContent: string[] = [
     "REDRUM", "CocaCola", "Code1", "ZeroSugar", "Goblin", "Cthulhu"
 ];
 
+let instanceRange: number = 50;
 
-//Loops
-let i = 0;
-
-do {
-    i++;
+for (let i: number = 0; i < instanceRange; i++) {
     let newSpan: HTMLSpanElement = document.createElement("span");
 
     //Random Text
@@ -43,13 +34,23 @@ do {
     //Random Size
     newSpan.style.fontSize = Math.random() * window.innerWidth * 0.3 + "px";
 
+    //Random Font
+    newSpan.style.font = fontList[Math.floor(Math.random()*3)];
+
+    newSpan.style.textAlign = "center";
+
+    newSpan.style.filter = "blur(" + (instanceRange - i) * blurFactor + "px)";
+
     //Append New Span
     document.body.appendChild(newSpan);
-} while (i < 50)
+}
 
-let spanSelector = document.getElementsByTagName("span");
-let blurFactor = 0.25;
+document.body.addEventListener("click", hndClick);
 
-for (let i = 0; i <= 50; i++) {
-    spanSelector[i].style.filter = "blur("+ i * blurFactor +"px)";
+function hndClick(_event: Event): void {
+    let target: HTMLElement = <HTMLElement>_event.target;
+    if (target == document.body)
+        return;
+    target.textContent = bodyContent[Math.floor(Math.random() * bodyContent.length)];
+    target.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
