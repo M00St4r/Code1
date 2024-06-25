@@ -5,8 +5,7 @@ interface Quote {
 
 const quotes: Quote[] = [
     {
-        quote:
-            "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+        quote: "In the end, we will remember not the words of our enemies, but the silence of our friends.",
         author: "Martin Luther King Jr.",
     },
     {
@@ -182,7 +181,7 @@ randBG();
 randQuote();
 
 function randBG() {
-    let randBG = Math.floor(Math.random() * 1000);
+    let randBG: number = Math.floor(Math.random() * 1000);
     document.body.style.backgroundImage = "url('https://picsum.photos/id/" + randBG + "/1920/1080')";
 }
 

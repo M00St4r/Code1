@@ -306,6 +306,11 @@ Pseudo-classes and Pseudo-elements:
     :first-child, :last-child: Styles first or last child elements.
     :nth-child(n): Selects elements at a specific position.
 
+<div align="right">2024.06.24</div>
+
+simple Array : []
+associative Array : {}
+
 <div align="right">2024.06.25</div>
 
 ## Typescript
@@ -329,3 +334,4 @@ creates a new element in the Html doc.
 ### Load the Script after the HTML loaded
 
     <script src='main.js' defer></script>
+
