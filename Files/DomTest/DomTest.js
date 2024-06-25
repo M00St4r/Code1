@@ -32,3 +32,8 @@ do {
     //Append New Span
     document.body.appendChild(newSpan);
 } while (i < 50);
+let spanSelector = document.getElementsByTagName("span");
+let blurFactor = 0.25;
+for (let i = 0; i <= 50; i++) {
+    spanSelector[i].style.filter = "blur(" + i * blurFactor + "px)";
+}

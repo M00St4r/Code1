@@ -335,3 +335,16 @@ creates a new element in the Html doc.
 
     <script src='main.js' defer></script>
 
+## Events
+Here’s a breakdown of the different types of events and their characteristics:
+
+    Mouse events: These events are triggered by user interactions with the mouse, such as mouse clicks, mouse movements, and mouse wheel scrolling.
+    
+    Keyboard events: These events are triggered by user interactions with the keyboard, such as key presses, key releases, and keyboard navigation.
+    
+    Form events: These events are triggered by user interactions with form elements, such as form submissions, input changes, and validation errors.
+    
+    Window events: These events are triggered by changes to the window, such as window resize, load, and unload.
+    
+    Document events: These events are triggered by changes to the document, such as DOM mutations, load, and unload.
+

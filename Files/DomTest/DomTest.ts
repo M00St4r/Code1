@@ -26,13 +26,13 @@ let i = 0;
 do {
     i++;
     let newSpan: HTMLSpanElement = document.createElement("span");
-    
+
     //Random Text
     const randomText = bodyContent[Math.floor(Math.random() * bodyContent.length)];
     newSpan.textContent = randomText;
 
     //Random Color
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     newSpan.style.color = "#" + randomColor;
 
     //Random Position
@@ -46,3 +46,10 @@ do {
     //Append New Span
     document.body.appendChild(newSpan);
 } while (i < 50)
+
+let spanSelector = document.getElementsByTagName("span");
+let blurFactor = 0.25;
+
+for (let i = 0; i <= 50; i++) {
+    spanSelector[i].style.filter = "blur("+ i * blurFactor +"px)";
+}
