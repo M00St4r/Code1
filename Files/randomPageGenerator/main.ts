@@ -196,7 +196,7 @@ function randQuote() {
 
     if (context) {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = "24px Arial";
+        context.font = "50px 'Fleur De Leah', cursive"
         context.fillStyle = "white";
         context.textAlign = "center";
 
@@ -205,7 +205,7 @@ function randQuote() {
         context.shadowOffsetY = 2;
 
         context.fillText(randomQuote.quote, canvas.width / 2, canvas.height / 2);
-        context.font = "20px Arial";
+        context.font = "40px 'Fleur De Leah', cursive";
         context.fillText(`- ${randomQuote.author}`, canvas.width / 2, canvas.height / 2 + 40);
     }
 }
