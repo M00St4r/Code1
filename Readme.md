@@ -305,3 +305,23 @@ Pseudo-classes and Pseudo-elements:
     ::before, ::after: Adds content before or after an element.
     :first-child, :last-child: Styles first or last child elements.
     :nth-child(n): Selects elements at a specific position.
+
+<div align="right">2024.06.25</div>
+
+## Typescript
+
+    document.getElementById("<id>");
+
+    document.getElementById("<id>")!;
+
+<!> guaranties the code that the returned value can't be "null"
+
+    document.querySelector("<css Selector>");
+
+    document.createElement(<element>);
+
+creates a new element in the Html doc.
+
+    let newspan = document.createElement("span");
+    newspawn.textContent = "hello";
+    document.body.appendChild(newspan);
