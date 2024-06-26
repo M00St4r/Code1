@@ -1,1 +1,26 @@
+html,body{
+    height: 100%;
+    margin: 0 8px;
+}
 
+body{
+    text-align: center;
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+}
+
+div{
+    border: thin solid black;
+    background-color: darkcyan;
+    position: relative;
+    top: 0px;
+    left: 0px;
+
+}
+
+span{
+    font-size: 85px;
+    position: absolute;
+    border: thin dotted black;
+    border-radius: 15%;
+}
