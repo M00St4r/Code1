@@ -10,7 +10,7 @@ function placeLetter(_event) {
     var mouseX = _event.offsetX;
     var mouseY = _event.offsetY;
     var letter = document.createElement("span");
-    var mail = document.querySelector("div#mail");
+    var mail = _event.target;
     mail.appendChild(letter);
     letter.textContent = chosenCharacter;
     letter.style.aspectRatio = "1/1";

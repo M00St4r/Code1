@@ -14,7 +14,7 @@ function placeLetter(_event: MouseEvent): void {
     let mouseY: number = _event.offsetY;
 
     let letter: HTMLSpanElement = document.createElement("span");
-    let mail: HTMLElement = <HTMLElement>document.querySelector("div#mail");
+    let mail: HTMLElement = <HTMLElement>_event.target;
     mail.appendChild(letter);
 
     letter.textContent = chosenCharacter;
