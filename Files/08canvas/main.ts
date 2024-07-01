@@ -1,10 +1,5 @@
-//document.addEventListener("load", handleLoad)
-
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-// canvas.style.top = "0px";
-// canvas.style.left = "0px";
-// canvas.style.height = "600px";
-// canvas.style.width = "600px";
+
 document.body.appendChild(canvas);
 const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 

@@ -1,9 +1,4 @@
-//document.addEventListener("load", handleLoad)
 var canvas = document.getElementsByTagName("canvas")[0];
-// canvas.style.top = "0px";
-// canvas.style.left = "0px";
-// canvas.style.height = "600px";
-// canvas.style.width = "600px";
 document.body.appendChild(canvas);
 var ctx = canvas.getContext("2d");
 ctx.rect(10, 10, 100, 100);

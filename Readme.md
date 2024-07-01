@@ -355,6 +355,35 @@ Here’s a breakdown of the different types of events and their characteristics:
 
 ## Canvas
 
+shapes and colors
+
+<div align="right">2024.07.01</div>
+
+## Canvas
+
+### Canvas transformations
+
+    
+    context.transform(a, b, c, d, e, f)
+
+    a	Scales the drawing horizontally	
+    b	Skew the the drawing horizontally	
+    c	Skew the the drawing vertically	
+    d	Scales the drawing vertically	
+    e	Moves the the drawing horizontally	
+    f	Moves the the drawing vertically
+
+    ctx.rotate(20 * Math.PI / 180);
+
+    rotates by 20°
+
+    ctx.scale(2, 2);
+
+    skales by 200%
+
+    ctx.translate(70, 70);
+
+    sets position to 70/70
 
 
 
