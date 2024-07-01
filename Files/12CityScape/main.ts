@@ -53,7 +53,7 @@ function drawTree(trees: Tree[]){
         ctx.fillStyle = trees[i].stemColor;
         let tree: Path2D = new Path2D;
         tree.rect(trees[i].transform.posX, trees[i].transform.posY, trees[i].transform.width, trees[i].transform.height);
-        ctx.fill(tree);
+
         //for(let i = 0)
     }
 }
