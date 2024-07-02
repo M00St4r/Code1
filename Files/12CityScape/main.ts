@@ -1,20 +1,15 @@
-interface Transform {
-    posY: number,
-    posX: number,
-    width: number,
-    height: number,
-    scale: number,
-}
-
 interface House {
     hue: number,
     windowColor: string,
-    strokeColor: string,
+    strokeColor: number,
 }
 
 interface Cloud {
-    transform: Transform,
-    type: string,
+    posX: number,
+    posY: number,
+    radX: number,
+    radY: number,
+    opacity: number,
 }
 
 const canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -22,6 +17,7 @@ const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
 let canvasX = canvas.width;
 let canvasY = canvas.height;
+let cloudArray: Cloud[] = [];
 
 //draw background
 ctx.fillStyle = "rgb(13, 13, 13)";
@@ -42,19 +38,23 @@ sky.rect(0, 0, canvasX, canvasY / 2);
 ctx.fill(sky);
 
 let House1: House = {
-    hue: 300,
+    hue: 222,
     windowColor: "white",
-    strokeColor: "rgb(92, 92, 92)",
+    strokeColor: 0,
 }
 
-function drawMoon(color: string) {
+function drawMoon(color: string, yOffset: number, completion: number) {
     ctx.fillStyle = color;
     let moon: Path2D = new Path2D();
     let shadow: Path2D = new Path2D();
-    moon.arc(canvasX / 2, canvasY / 4, 50, 0, Math.PI * 2, false);
+    let moonRad = 50;
+
+    let moonX = canvasX / 2;
+    let moonY = (canvasY / 4) - yOffset;
+    moon.arc(moonX, moonY, moonRad, 0, Math.PI * 2, false);
     ctx.fill(moon);
 
-    shadow.arc(canvasX / 2 - 20, canvasY / 4, 50, 0, Math.PI * 2, false);
+    shadow.arc(moonX - (moonRad * 2) * completion, moonY, moonRad + 1, 0, Math.PI * 2, false);
     ctx.fillStyle = skyGradient;
     ctx.fill(shadow);
 }
@@ -70,18 +70,15 @@ function drawStars(amount: number) {
 }
 
 function drawClouds(amount: number) {
-    for (let i: number = 0; i < amount; i++) {
+
+    createCloudArray(amount);
+
+    for (let i: number = 0; i < cloudArray.length; i++) {
         let cloud: Path2D = new Path2D();
-        let opacity = Math.floor(Math.random() + 0.5);
-        ctx.fillStyle = "rgba(255, 255, 255," + opacity * 0.5 + ")";
 
-        let cloudX: number = Math.floor(Math.random() * canvasX);
-        let cloudY: number = Math.floor(Math.random() * (canvasY / 2.5));
+        ctx.fillStyle = "rgba(255, 255, 255," + cloudArray[i].opacity * 0.5 + ")";
 
-        let cloudRX: number = Math.floor(Math.random() * 200 + 100);
-        let cloudRY: number = Math.floor(Math.random() * 40 + 10);
-
-        cloud.ellipse(cloudX, cloudY, cloudRX, cloudRY, 0, 0, Math.PI * 2, false);
+        cloud.ellipse(cloudArray[i].posX, cloudArray[i].posY, cloudArray[i].radX, cloudArray[i].radY, 0, 0, Math.PI * 2, false);
         ctx.fill(cloud);
     }
 }
@@ -89,33 +86,37 @@ function drawClouds(amount: number) {
 function drawHouses(houses: House, count: number) {
 
     for (let i = 0; i < canvasY / 2; i = i + 10) {
-        //ctx.fillStyle = houses[0].color;
-        ctx.strokeStyle = houses.strokeColor;
-        let distribution = (Math.abs(i - canvasY / 2)) * 0.01;
+        let distribution = ((Math.abs(i - canvasY / 2)) * 0.01) * count;
 
         for (let j: number = 0; j < distribution; j++) {
-            let saturation = 100 * i / (canvasY / 2);
-            let lightness = (Math.abs(i - canvasY / 2) / i);
+            let saturation: number = 100 * i / (canvasY / 2);
+            let lightness: number = (Math.abs(i - canvasY / 2) / i) * 10;
+            let strokeLightness: number = (Math.abs(i - canvasY / 2) / i) * 10 + 30;
 
             ctx.fillStyle = "hsl(" + houses.hue + ", " + saturation + "%, " + lightness + "%)";
+            ctx.strokeStyle = "hsl(" + houses.strokeColor + ", 0%, " + strokeLightness + "%)";
 
             let house: Path2D = new Path2D;
-            let distanceFac: number = (i / (canvasY / 2)) * 0.9;
-            let randH: number = (Math.floor(Math.random() * 500 + 300)) * distanceFac;
-            let randW: number = (Math.floor(Math.random() * 100 + 100)) * distanceFac;
+            //scales the houses based of the y Position + an offset
+            let distanceFac: number = (i / (canvasY / 2) + 0.1); //(i / (canvasY / 2))
+            let houseH: number = (Math.floor(Math.random() * 500 + 300)) * distanceFac;
+            let houseW: number = (Math.floor(Math.random() * 100 + 100)) * distanceFac;
 
-            let randX: number = Math.floor(Math.random() * canvasX);
-            let PosY: number = i + canvasY / 2;
+            let houseX: number = Math.floor(Math.random() * canvasX);
+            let houseY: number = i + canvasY / 2;
 
-            house.rect(randX, PosY, randW, -randH);
+            house.rect(houseX, houseY, houseW, -houseH);
+            ctx.lineWidth = 2;
             ctx.fill(house);
             ctx.stroke(house);
 
             // Adjust window size based on house dimensions
-            let windowsPerRow: number = 5;
-            let windowsPerColumn: number = 10;
-            let windowW: number = randW / (windowsPerRow * 1.5);
-            let windowH: number = randH / (windowsPerColumn * 1.5);
+            let windowsPerRow: number = 10;
+            let windowAspect: number = 1 / 2;
+            let windowW: number = houseW / (windowsPerRow * 1.5);
+            let windowH: number = windowW * windowAspect;
+
+            let windowsPerColumn: number = houseH / (windowH * 1.5);
 
             // Calculate window spacing
             let windowSpacingX: number = windowW * 0.5;
@@ -127,14 +128,15 @@ function drawHouses(houses: House, count: number) {
 
             for (let w: number = 0; w < windowsPerRow; w++) {
                 for (let h: number = 0; h < windowsPerColumn; h++) {
-                    ctx.strokeStyle = houses.strokeColor;
-                    ctx.fillStyle = "hsl(60, " + Math.floor(Math.random() * 50) + 50 + "%, " + Number(Math.random() < 0.5) * 100 + "%)";
+                    ctx.strokeStyle = "hsl(" + houses.strokeColor + ", 0%, " + strokeLightness + "%)";
+                    ctx.fillStyle = "hsl(60, " + Number(Math.random() < 0.5) * 100 + "%, " + Number(Math.random() < 0.3) * 90 + "%)";
 
-                    let windowX: number = randX + offsetX + (w * (windowW + windowSpacingX));
-                    let windowY: number = PosY - randH + offsetY + (h * (windowH + windowSpacingY));
+                    let windowX: number = houseX + offsetX + (w * (windowW + windowSpacingX));
+                    let windowY: number = houseY - houseH + offsetY + (h * (windowH + windowSpacingY));
 
                     let window: Path2D = new Path2D();
                     window.rect(windowX, windowY, windowW, windowH);
+                    ctx.lineWidth = 1;
                     ctx.fill(window);
                     ctx.stroke(window);
                 }
@@ -143,7 +145,23 @@ function drawHouses(houses: House, count: number) {
     }
 }
 
-drawStars(300);
-drawMoon("#e1ebcc");
-drawClouds(50);
-drawHouses(House1, 100);
+function createCloudArray(amount: number) {
+    for (let i = 0; i < amount; i++) {
+        let cloud: Cloud = {
+            posX: Math.floor(Math.random() * canvasX),
+            posY: Math.floor(Math.random() * (canvasY / 2.5)),
+
+            radX: Math.floor(Math.random() * 200 + 100),
+            radY: Math.floor(Math.random() * 40 + 10),
+
+            opacity: Math.floor(Math.random() + 0.5),
+        }
+        cloudArray.push(cloud);
+    }
+    return cloudArray;
+}
+
+drawStars(500);
+drawMoon("#e1ebcc", 150, 0.3);
+drawClouds(25);
+drawHouses(House1, 2);
