@@ -47,7 +47,6 @@ function drawStars(amount) {
 function drawClouds() {
     for (var i = 0; i < cloudArray.length; i++) {
         var cloud = new Path2D();
-        ctx.beginPath();
         ctx.fillStyle = "rgba(255, 255, 255," + cloudArray[i].opacity * 0.5 + ")";
         cloud.ellipse(cloudArray[i].posX, cloudArray[i].posY, cloudArray[i].radX, cloudArray[i].radY, 0, 0, Math.PI * 2, false);
         cloudArray[i].posX += cloudArray[i].speed;
@@ -120,8 +119,12 @@ function animate() {
     drawClouds();
     requestAnimationFrame(animate);
 }
+drawHouses(House1, 2);
+var Foreground = ctx.getImageData;
 drawStars(500);
 drawMoon("#e1ebcc", 150, 0.3);
+var Background = ctx.getImageData;
 createCloudArray(cloudAmount);
 drawHouses(House1, 2);
+//ctx.putImageData
 requestAnimationFrame(animate);
