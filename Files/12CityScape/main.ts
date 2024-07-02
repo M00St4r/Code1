@@ -7,6 +7,7 @@ interface House {
 interface Cloud {
     posX: number,
     posY: number,
+    speed: number,
     radX: number,
     radY: number,
     opacity: number,
@@ -18,6 +19,7 @@ const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 let canvasX = canvas.width;
 let canvasY = canvas.height;
 let cloudArray: Cloud[] = [];
+let cloudAmount: number = 25;
 
 //draw background
 ctx.fillStyle = "rgb(13, 13, 13)";
@@ -69,17 +71,22 @@ function drawStars(amount: number) {
     }
 }
 
-function drawClouds(amount: number) {
-
-    createCloudArray(amount);
+function drawClouds() {
 
     for (let i: number = 0; i < cloudArray.length; i++) {
         let cloud: Path2D = new Path2D();
 
+        ctx.beginPath();
+
         ctx.fillStyle = "rgba(255, 255, 255," + cloudArray[i].opacity * 0.5 + ")";
 
         cloud.ellipse(cloudArray[i].posX, cloudArray[i].posY, cloudArray[i].radX, cloudArray[i].radY, 0, 0, Math.PI * 2, false);
+
+        cloudArray[i].posX += cloudArray[i].speed
+
         ctx.fill(cloud);
+
+        console.log("draw Clouds")
     }
 }
 
@@ -151,6 +158,8 @@ function createCloudArray(amount: number) {
             posX: Math.floor(Math.random() * canvasX),
             posY: Math.floor(Math.random() * (canvasY / 2.5)),
 
+            speed: Math.floor(Math.random()*2),
+
             radX: Math.floor(Math.random() * 200 + 100),
             radY: Math.floor(Math.random() * 40 + 10),
 
@@ -158,10 +167,16 @@ function createCloudArray(amount: number) {
         }
         cloudArray.push(cloud);
     }
-    return cloudArray;
+}
+
+function animate(){
+    drawClouds()
+    requestAnimationFrame(animate)
 }
 
 drawStars(500);
 drawMoon("#e1ebcc", 150, 0.3);
-drawClouds(25);
+createCloudArray(cloudAmount);
 drawHouses(House1, 2);
+
+requestAnimationFrame(animate);
