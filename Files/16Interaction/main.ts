@@ -14,7 +14,6 @@ interface Box {
     posY: number,
     velocity: number,
     direction: direction,
-    gravity: number,
     height: number,
     width: number,
     color: RGB,
@@ -26,8 +25,6 @@ const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 let canvasX = canvas.width;
 let canvasY = canvas.height;
 let Boxes: Box[] = [];
-let BoxAmount: number = 100;
-let gravity: number = 9.81;
 let score: number = 0;
 
 function drawBackground() {
@@ -38,11 +35,17 @@ function drawBackground() {
     ctx.fill(bg);
 }
 
-canvas.addEventListener("click", (_event) => {
+window.addEventListener("click", (_event) => {
+    //console.log(_event);
+    console.log(Boxes[0].posX, Boxes[0].posY);
     let Box = Boxes[0];
     if(_event.clientX < Box.posX + Box.width && _event.clientX > Box.posX && _event.clientY < Box.posY + Box.height && _event.clientY > Box.posY){
         Boxes.pop();
         score++;
+        //console.log(score);
+        let scoreCounter: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById("score");
+        scoreCounter.textContent = score.toString();
+        generateBox();
     }
 });
 
@@ -55,9 +58,8 @@ function generateBox() {
             x: Math.random(),
             y: Math.random()
         },
-        gravity: gravity,
-        height: Math.floor(Math.random() * 50),
-        width: Math.floor(Math.random() * 50),
+        height: Math.floor(Math.random() * 100 + 100),
+        width: Math.floor(Math.random() * 100 + 100),
         color: {
             r: Math.floor(Math.random() * 255),
             g: Math.floor(Math.random() * 255),
@@ -78,7 +80,7 @@ function drawBoxes() {
 
         // Move boxes position
         Box.posX = Box.posX + Box.velocity * Box.direction.x;
-        Box.posY = Box.posY + (Box.velocity * Box.direction.y) * Box.gravity;
+        Box.posY = Box.posY + (Box.velocity * Box.direction.y);
 
         // Collision
         if (Box.posX + Box.width > canvasX) {
@@ -98,6 +100,8 @@ function drawBoxes() {
         }
     }
 }
+
+generateBox();
 
 function animate() {
     drawBackground();
