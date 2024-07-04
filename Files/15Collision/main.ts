@@ -14,6 +14,7 @@ interface Box {
     posY: number,
     velocity: number,
     direction: direction,
+    gravity: number,
     height: number,
     width: number,
     color: RGB,
@@ -26,6 +27,7 @@ let canvasX = canvas.width;
 let canvasY = canvas.height;
 let Boxes: Box[] = [];
 let BoxAmount: number = 100;
+let gravity: number = 9.81;
 
 function drawBackground() {
     //draw background
@@ -35,29 +37,29 @@ function drawBackground() {
     ctx.fill(bg);
 }
 
+canvas.addEventListener("click", (_event) => {
+    generateBox(_event.clientX, _event.clientY);
+});
 
-function generateBoxes(ammount: number) {
-
-    for (let i = 0; i < ammount; i++) {
-        let box: Box = {
-            posX: Math.floor(Math.random() * canvasX),
-            posY: Math.floor(Math.random() * canvasY),
-            velocity: Math.random() * 2,
-            direction: {
-                x: Math.random(),
-                y: Math.random()
-            },
-            height: Math.floor(Math.random() * 50),
-            width: Math.floor(Math.random() * 50),
-            color: {
-                r: Math.floor(Math.random() * 255),
-                g: Math.floor(Math.random() * 255),
-                b: Math.floor(Math.random() * 255)
-            }
+function generateBox(posx: number, posy: number) {
+    let box: Box = {
+        posX: posx,
+        posY: posy,
+        velocity: Math.random() * 2,
+        direction: {
+            x: Math.random(),
+            y: Math.random()
+        },
+        gravity: gravity,
+        height: Math.floor(Math.random() * 50),
+        width: Math.floor(Math.random() * 50),
+        color: {
+            r: Math.floor(Math.random() * 255),
+            g: Math.floor(Math.random() * 255),
+            b: Math.floor(Math.random() * 255)
         }
-        Boxes.push(box);
     }
-
+    Boxes.push(box);
 }
 
 function drawBoxes() {
@@ -71,7 +73,7 @@ function drawBoxes() {
 
         // Move boxes position
         Box.posX = Box.posX + Box.velocity * Box.direction.x;
-        Box.posY = Box.posY + Box.velocity * Box.direction.y;
+        Box.posY = Box.posY + (Box.velocity * Box.direction.y) * Box.gravity;
 
         // Collision
         if (Box.posX + Box.width > canvasX) {
@@ -91,8 +93,6 @@ function drawBoxes() {
         }
     }
 }
-
-generateBoxes(10);
 
 function animate() {
     drawBackground();
