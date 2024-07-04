@@ -42,19 +42,22 @@ function drawBoxes() {
         // Move boxes position
         Box.posX = Box.posX + Box.velocity * Box.direction.x;
         Box.posY = Box.posY + Box.velocity * Box.direction.y;
-        // Wrap around horizontally
-        if (Box.posX > canvasX) {
-            Box.posX = -Box.width;
+        // Collision
+        if (Box.posX + Box.width > canvasX) {
+            Box.posX = canvasX - Box.width;
+            Box.direction.x = -Box.direction.x;
         }
-        else if (Box.posX + Box.width < 0) {
-            Box.posX = canvasX;
+        else if (Box.posX < 0) {
+            Box.posX = 0;
+            Box.direction.x = -Box.direction.x;
         }
-        // Wrap around vertically
-        if (Box.posY > canvasY) {
-            Box.posY = -Box.height;
+        if (Box.posY + Box.height > canvasY) {
+            Box.posY = canvasY - Box.height;
+            Box.direction.y = -Box.direction.y;
         }
-        else if (Box.posY + Box.height < 0) {
-            Box.posY = canvasY;
+        else if (Box.posY < 0) {
+            Box.posY = 0;
+            Box.direction.y = -Box.direction.y;
         }
     }
 }
